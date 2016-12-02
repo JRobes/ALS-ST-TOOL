@@ -8,9 +8,12 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 
 import org.eclipse.core.runtime.FileLocator;
 import org.eclipse.core.runtime.Path;
@@ -209,6 +212,20 @@ public class ProjectExplorer {
     			break;
     		
 		}
+		
+	}
+
+	@PreDestroy
+	private void predestroy() {
+		System.out.println("PRE-DESTROY LLAMADO...");
+		List<ModelProjectPath> results;
+		results = listOfStressTools[0].getOpenProjects();
+		Map<String, String> resultsMap = new HashMap<String, String>();
+		int i=0;
+		for (ModelProjectPath o : results) {
+		    resultsMap.put("AUTODOCU_"+i, o.getName());
+		}
+		
 	}
 	
 }
