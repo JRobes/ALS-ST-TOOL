@@ -6,7 +6,7 @@ import java.util.List;
 
 public class RootProjects {
 	protected String rootProjectName;
-	protected List listOpenProjects;
+	protected List<ModelProjectPath> listOpenProjects;
 	public RootProjects(){
 		listOpenProjects = new ArrayList();
 	}
@@ -18,7 +18,7 @@ public class RootProjects {
 		this();
 		this.rootProjectName = name;
 	}
-	public List getOpenProjects() {
+	public List<ModelProjectPath> getOpenProjects() {
 		return listOpenProjects;
 	}
 	
