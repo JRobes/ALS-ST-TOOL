@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="ASCII"?>
+<application:Application xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:advanced="http://www.eclipse.org/ui/2010/UIModel/application/ui/advanced" xmlns:application="http://www.eclipse.org/ui/2010/UIModel/application" xmlns:basic="http://www.eclipse.org/ui/2010/UIModel/application/ui/basic" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xmi:id="_ZLP0QJH8Eea8KeGJQvTbFQ" elementId="aero.alestis.stresstools.application">
+  <children xsi:type="basic:TrimmedWindow" xmi:id="_j4VXIJH-Eea8KeGJQvTbFQ" elementId="aero.alestis.stresstools.trimmedwindow.0" label="Alestis Stress Tools" tooltip="Alestis Stress Tools" x="10" y="10" width="1500" height="800">
+    <children xsi:type="advanced:PerspectiveStack" xmi:id="_Idw7kJRzEeaHPvaUkqHx1g" elementId="aero.alestis.stresstools.perspectivestack.0">
+      <children xsi:type="advanced:Perspective" xmi:id="_LwDywJRzEeaHPvaUkqHx1g" elementId="aero.alestis.stresstools.perspective.0">
+        <children xsi:type="basic:PartSashContainer" xmi:id="_h5WvsJR0EeaHPvaUkqHx1g" elementId="aero.alestis.stresstools.partsashcontainer.0" horizontal="true">
+          <children xsi:type="basic:PartStack" xmi:id="_Y6UBwJUcEeatx-vC6dETNg" elementId="aero.alestis.stresstools.partstack.1" containerData="1000">
+            <children xsi:type="basic:Part" xmi:id="_jwROAJR0EeaHPvaUkqHx1g" elementId="aero.alestis.stresstools.part.browser" containerData="" contributionURI="bundleclass://aero.alestis.stresstools/aero.alestis.stresstools.projectexplorer.ProjectExplorer" label="Browser" iconURI="platform:/plugin/aero.alestis.stresstools/icons/documents-symbol.png"/>
+          </children>
+          <children xsi:type="basic:PartSashContainer" xmi:id="_66NlEJR0EeaHPvaUkqHx1g" elementId="aero.alestis.stresstools.partsashcontainer.1" containerData="4000">
+            <children xsi:type="basic:PartStack" xmi:id="_97SJYJR0EeaHPvaUkqHx1g" elementId="aero.alestis.stresstools.partstack.0" containerData="3000">
+              <tags>NoAutoCollapse</tags>
+            </children>
+            <children xsi:type="basic:PartStack" xmi:id="_cgVtQJUcEeatx-vC6dETNg" elementId="aero.alestis.stresstools.partstack.2" containerData="1000">
+              <children xsi:type="basic:Part" xmi:id="_AIlucJR1EeaHPvaUkqHx1g" elementId="aero.alestis.stresstools.part.console" containerData="" contributionURI="bundleclass://aero.alestis.stresstools/aero.alestis.stresstools.console.ConsoleView" label="Console" iconURI="platform:/plugin/aero.alestis.stresstools/icons/console_view.gif">
+                <toolbar xmi:id="_pab0IJR3EeaHPvaUkqHx1g" elementId="aero.alestis.stresstools.toolbar.0"/>
+              </children>
+            </children>
+          </children>
+        </children>
+      </children>
+    </children>
+    <mainMenu xmi:id="_IkOysJnTEeaJOfCG5e0Pjw" elementId="aero.alestis.stresstools.menu.mainmenu">
+      <children xsi:type="menu:Menu" xmi:id="_XB7yYJnTEeaJOfCG5e0Pjw" elementId="aero.alestis.stresstools.menu.file" label="File">
+        <children xsi:type="menu:Menu" xmi:id="_VQDTIJnVEeaJOfCG5e0Pjw" elementId="aero.alestis.stresstools.menu.new" label="New..." iconURI="platform:/plugin/aero.alestis.stresstools/icons/new_con.gif">
+          <children xsi:type="menu:HandledMenuItem" xmi:id="_Yq63gJnVEeaJOfCG5e0Pjw" elementId="aero.alestis.stresstools.handledmenuitem.autodocufile" label="Autodocu File" iconURI="platform:/plugin/aero.alestis.stresstools/icons/file_obj.gif" command="_eW5GYJnWEeaJOfCG5e0Pjw"/>
+        </children>
+        <children xsi:type="menu:Menu" xmi:id="_uW2RMJrBEeaq-t_uOUw7jA" elementId="aero.alestis.stresstools.menu.open" label="Open" iconURI="platform:/plugin/aero.alestis.stresstools/icons/folder.png">
+          <children xsi:type="menu:HandledMenuItem" xmi:id="_yOn0AJrBEeaq-t_uOUw7jA" elementId="aero.alestis.stresstools.handledmenuitem.autodocuopen" label="Open Autodocu" command="_GyvNwJrBEeaq-t_uOUw7jA"/>
+        </children>
+      </children>
+      <children xsi:type="menu:MenuSeparator" xmi:id="_ZcUxMJnTEeaJOfCG5e0Pjw" elementId="aero.alestis.stresstools.menuseparator.0"/>
+      <children xsi:type="menu:Menu" xmi:id="_aTRAQJnTEeaJOfCG5e0Pjw" elementId="aero.alestis.stresstools.menu.tools" label="Tools"/>
+      <children xsi:type="menu:MenuSeparator" xmi:id="_fbfeUJnTEeaJOfCG5e0Pjw" elementId="aero.alestis.stresstools.menuseparator.1"/>
+      <children xsi:type="menu:Menu" xmi:id="_yZqjEJnUEeaJOfCG5e0Pjw" elementId="aero.alestis.stresstools.menu.help" label="Help">
+        <children xsi:type="menu:HandledMenuItem" xmi:id="__QzNkJnUEeaJOfCG5e0Pjw" elementId="aero.alestis.stresstools.handledmenuitem.about" label="About" iconURI="platform:/plugin/aero.alestis.stresstools/icons/About.png" command="_zwcd4JnWEeaJOfCG5e0Pjw"/>
+      </children>
+    </mainMenu>
+    <trimBars xmi:id="_Z78O8JnfEeaJOfCG5e0Pjw" elementId="aero.alestis.stresstools.trimbar.top">
+      <children xsi:type="menu:ToolBar" xmi:id="_bpCp8JnfEeaJOfCG5e0Pjw" elementId="aero.alestis.stresstools.toolbar.1">
+        <children xsi:type="menu:HandledToolItem" xmi:id="_dcjO8JnfEeaJOfCG5e0Pjw" elementId="aero.alestis.stresstools.handledtoolitem.0" iconURI="platform:/plugin/aero.alestis.stresstools/icons/new_con.gif" command="_eW5GYJnWEeaJOfCG5e0Pjw"/>
+      </children>
+    </trimBars>
+    <trimBars xmi:id="_mSjvkJtOEeayoaCX6Ub29g" elementId="aero.alestis.stresstools.trimbar.bottom" side="Bottom">
+      <children xsi:type="menu:ToolControl" xmi:id="_BtYk0JuCEea1g4xNAXtVAw" elementId="aero.alestis.stresstools.toolcontrol.statusbar" contributionURI="bundleclass://aero.alestis.stresstools/aero.alestis.stresstools.handlers.BottomToolbarControl"/>
+    </trimBars>
+  </children>
+  <handlers xmi:id="_7iN7oJnXEeaJOfCG5e0Pjw" elementId="aero.alestis.stresstools.handler.newautodocuhandler" contributionURI="bundleclass://aero.alestis.stresstools/aero.alestis.stresstools.autodocu.handlers.NewAutodocuHandler" command="_eW5GYJnWEeaJOfCG5e0Pjw"/>
+  <handlers xmi:id="_WUS3AJnYEeaJOfCG5e0Pjw" elementId="aero.alestis.stresstools.handler.abouthandler" contributionURI="bundleclass://aero.alestis.stresstools/aero.alestis.stresstools.handlers.AboutHandler" command="_zwcd4JnWEeaJOfCG5e0Pjw"/>
+  <handlers xmi:id="_M7Z1IJrBEeaq-t_uOUw7jA" elementId="aero.alestis.stresstools.handler.openautodocuhandler" contributionURI="bundleclass://aero.alestis.stresstools/aero.alestis.stresstools.autodocu.handlers.OpenAutodocuHandler" command="_GyvNwJrBEeaq-t_uOUw7jA"/>
+  <descriptors xmi:id="_9W2mYJn1EeaPDujWeEOrZA" elementId="aero.alestis.stresstools.partdescriptor.autodocu" iconURI="platform:/plugin/aero.alestis.stresstools/icons/file_obj.gif" allowMultiple="true" contributionURI="bundleclass://aero.alestis.stresstools/aero.alestis.stresstools.autodocu.AutodocuForm"/>
+  <commands xmi:id="_eW5GYJnWEeaJOfCG5e0Pjw" elementId="aero.alestis.stresstools.command.newautodocu" commandName="newautodocu"/>
+  <commands xmi:id="_zwcd4JnWEeaJOfCG5e0Pjw" elementId="aero.alestis.stresstools.command.about" commandName="about"/>
+  <commands xmi:id="_GyvNwJrBEeaq-t_uOUw7jA" elementId="aero.alestis.stresstools.command.openautodocu" commandName="openautodocu"/>
+  <addons xmi:id="_ZLP0QZH8Eea8KeGJQvTbFQ" elementId="org.eclipse.e4.core.commands.service" contributionURI="bundleclass://org.eclipse.e4.core.commands/org.eclipse.e4.core.commands.CommandServiceAddon"/>
+  <addons xmi:id="_ZLP0QpH8Eea8KeGJQvTbFQ" elementId="org.eclipse.e4.ui.contexts.service" contributionURI="bundleclass://org.eclipse.e4.ui.services/org.eclipse.e4.ui.services.ContextServiceAddon"/>
+  <addons xmi:id="_ZLP0Q5H8Eea8KeGJQvTbFQ" elementId="org.eclipse.e4.ui.bindings.service" contributionURI="bundleclass://org.eclipse.e4.ui.bindings/org.eclipse.e4.ui.bindings.BindingServiceAddon"/>
+  <addons xmi:id="_ZLP0RJH8Eea8KeGJQvTbFQ" elementId="org.eclipse.e4.ui.workbench.commands.model" contributionURI="bundleclass://org.eclipse.e4.ui.workbench/org.eclipse.e4.ui.internal.workbench.addons.CommandProcessingAddon"/>
+  <addons xmi:id="_ZLP0RZH8Eea8KeGJQvTbFQ" elementId="org.eclipse.e4.ui.workbench.contexts.model" contributionURI="bundleclass://org.eclipse.e4.ui.workbench/org.eclipse.e4.ui.internal.workbench.addons.ContextProcessingAddon"/>
+  <addons xmi:id="_ZLP0RpH8Eea8KeGJQvTbFQ" elementId="org.eclipse.e4.ui.workbench.bindings.model" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.swt/org.eclipse.e4.ui.workbench.swt.util.BindingProcessingAddon"/>
+  <addons xmi:id="_ZLP0R5H8Eea8KeGJQvTbFQ" elementId="org.eclipse.e4.ui.workbench.handler.model" contributionURI="bundleclass://org.eclipse.e4.ui.workbench/org.eclipse.e4.ui.internal.workbench.addons.HandlerProcessingAddon"/>
+</application:Application>
