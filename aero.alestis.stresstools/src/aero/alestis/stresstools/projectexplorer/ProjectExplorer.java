@@ -19,7 +19,9 @@ import org.eclipse.core.runtime.FileLocator;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.e4.core.di.annotations.Optional;
 import org.eclipse.e4.core.services.events.IEventBroker;
+import org.eclipse.e4.ui.di.PersistState;
 import org.eclipse.e4.ui.di.UIEventTopic;
+import org.eclipse.e4.ui.model.application.ui.basic.MPart;
 import org.eclipse.jface.action.Action;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.viewers.ITreeContentProvider;
@@ -205,7 +207,10 @@ public class ProjectExplorer {
     			viewer.refresh();
     			break;
     		case StressToolsEventConstants.FILE_CLOSE_AUTODOCU_PART:
-    			System.out.println("File Close autodocu from broker");
+    			System.out.println("File Close autodocu from broker\tClase:\t"+ this.getClass().getSimpleName());
+    			   			
+    			//System.out.println("Nombre del método:\t"+ this.getClass().getEnclosingMethod().getName());
+    			//System.out.println("Nombre de la Clase:\t"+ this.getClass().getName());
     			listOfStressTools[0].removeProject(name);
     			viewer.expandAll();
     			viewer.refresh();
@@ -213,6 +218,12 @@ public class ProjectExplorer {
     		
 		}
 		
+	}
+	@PersistState
+	public void persistState(MPart part) {
+	        Map<String, String> state = part.getPersistedState();
+	        state.put("key", "newValue");
+	        System.out.println("@PersistState\tClase:\t"+ this.getClass().getSimpleName());
 	}
 
 	@PreDestroy

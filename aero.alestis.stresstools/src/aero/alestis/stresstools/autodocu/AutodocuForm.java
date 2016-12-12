@@ -19,6 +19,7 @@ import org.eclipse.e4.ui.di.Focus;
 import org.eclipse.e4.ui.model.application.ui.MDirtyable;
 import org.eclipse.e4.ui.model.application.ui.basic.MPart;
 import org.eclipse.e4.ui.services.IServiceConstants;
+import org.eclipse.e4.ui.workbench.modeling.EPartService;
 import org.eclipse.jface.action.Action;
 import org.eclipse.jface.action.IToolBarManager;
 import org.eclipse.jface.resource.ImageDescriptor;
@@ -62,7 +63,7 @@ public class AutodocuForm {
 	@PostConstruct
 	public void postConstruct(Composite parent) {
 		System.out.println("Numero de transient data en el parte:\t" +parte.getTransientData().size());
-		
+		parte.getTags().add(EPartService.REMOVE_ON_HIDE_TAG);
 		if(parte.getTransientData().get("File Path") == null){
 			parte.setLabel("AUTODOCU");
 		}
