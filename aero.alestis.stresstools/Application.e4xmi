@@ -48,7 +48,9 @@
   <handlers xmi:id="_7iN7oJnXEeaJOfCG5e0Pjw" elementId="aero.alestis.stresstools.handler.newautodocuhandler" contributionURI="bundleclass://aero.alestis.stresstools/aero.alestis.stresstools.autodocu.handlers.NewAutodocuHandler" command="_eW5GYJnWEeaJOfCG5e0Pjw"/>
   <handlers xmi:id="_WUS3AJnYEeaJOfCG5e0Pjw" elementId="aero.alestis.stresstools.handler.abouthandler" contributionURI="bundleclass://aero.alestis.stresstools/aero.alestis.stresstools.handlers.AboutHandler" command="_zwcd4JnWEeaJOfCG5e0Pjw"/>
   <handlers xmi:id="_M7Z1IJrBEeaq-t_uOUw7jA" elementId="aero.alestis.stresstools.handler.openautodocuhandler" contributionURI="bundleclass://aero.alestis.stresstools/aero.alestis.stresstools.autodocu.handlers.OpenAutodocuHandler" command="_GyvNwJrBEeaq-t_uOUw7jA"/>
-  <descriptors xmi:id="_9W2mYJn1EeaPDujWeEOrZA" elementId="aero.alestis.stresstools.partdescriptor.autodocu" iconURI="platform:/plugin/aero.alestis.stresstools/icons/file_obj.gif" allowMultiple="true" closeable="true" contributionURI="bundleclass://aero.alestis.stresstools/aero.alestis.stresstools.autodocu.AutodocuForm"/>
+  <descriptors xmi:id="_9W2mYJn1EeaPDujWeEOrZA" elementId="aero.alestis.stresstools.partdescriptor.autodocu" iconURI="platform:/plugin/aero.alestis.stresstools/icons/file_obj.gif" allowMultiple="true" closeable="true" contributionURI="bundleclass://aero.alestis.stresstools/aero.alestis.stresstools.autodocu.AutodocuForm">
+    <tags>removeOnHide</tags>
+  </descriptors>
   <commands xmi:id="_eW5GYJnWEeaJOfCG5e0Pjw" elementId="aero.alestis.stresstools.command.newautodocu" commandName="newautodocu"/>
   <commands xmi:id="_zwcd4JnWEeaJOfCG5e0Pjw" elementId="aero.alestis.stresstools.command.about" commandName="about"/>
   <commands xmi:id="_GyvNwJrBEeaq-t_uOUw7jA" elementId="aero.alestis.stresstools.command.openautodocu" commandName="openautodocu"/>

@@ -4,9 +4,13 @@ package aero.alestis.stresstools.autodocu;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import java.io.File;
 import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.LinkOption;
 import java.nio.file.Paths;
 //import java.nio.file.Path;
+import java.util.Map;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
@@ -16,6 +20,7 @@ import org.eclipse.core.runtime.Path;
 import org.eclipse.e4.core.di.annotations.Optional;
 import org.eclipse.e4.core.services.events.IEventBroker;
 import org.eclipse.e4.ui.di.Focus;
+import org.eclipse.e4.ui.di.PersistState;
 import org.eclipse.e4.ui.model.application.ui.MDirtyable;
 import org.eclipse.e4.ui.model.application.ui.basic.MPart;
 import org.eclipse.e4.ui.services.IServiceConstants;
@@ -48,6 +53,7 @@ public class AutodocuForm {
 	@Inject MDirtyable dirty;
 	@Inject MPart parte;
 	@Inject IEventBroker broker;
+	@Inject EPartService partService;
 	
 	@Inject
 	public AutodocuForm() {
@@ -63,20 +69,47 @@ public class AutodocuForm {
 	@PostConstruct
 	public void postConstruct(Composite parent) {
 		System.out.println("Numero de transient data en el parte:\t" +parte.getTransientData().size());
-		parte.getTags().add(EPartService.REMOVE_ON_HIDE_TAG);
+		//parte.getTags().add(EPartService.REMOVE_ON_HIDE_TAG);
+		//parte.setElementId("EEEELEMENTOTTTTTTTT");
+		System.out.println("LAS TAGS:\t"+parte.getTags().toString());
+		System.out.println("EL container DAta:\t"+parte.getContainerData());
 		if(parte.getTransientData().get("File Path") == null){
-			parte.setLabel("AUTODOCU");
+			String tempDir = System.getProperty("java.io.tmpdir");
+			System.out.println("DIRECTIORIO TEMPORAL:\t"+tempDir);
+			partPath = Paths.get(parte.getElementId());
+			if(Files.exists(partPath, LinkOption.NOFOLLOW_LINKS)){
+				System.out.println("EL ARCHIVO EXISTE$$$$$$$$$$$$$$$$$$$$$$$$");
+
+			}
+	
 		}
 		else{
 			
 			String cadena = (String)parte.getTransientData().get("File Path");
 			System.out.println("LA PUTA CADENA\t"+ cadena);
 			partPath = Paths.get(cadena);
+			Files.exists(partPath, LinkOption.NOFOLLOW_LINKS);
 			parte.setLabel(partPath.getFileName().toString());
+			parte.setElementId(partPath.toString());
+			
 
 		}
 		
-		 //parte.getTags().add(EPartService.REMOVE_ON_HIDE_TAG);
+		 createSWTControls(parent);
+		 
+		 broker.post(StressToolsEventConstants.FILE_NEW_AUTODOCU_PART, parte.getLabel());
+	 
+	}
+
+
+
+
+
+	/**
+	 * @param parent
+	 */
+	private void createSWTControls(Composite parent) {
+		//parte.getTags().add(EPartService.REMOVE_ON_HIDE_TAG);
 		 toolkit = new FormToolkit(parent.getDisplay());
 		 form = toolkit.createScrolledForm(parent);
 		 
@@ -263,9 +296,6 @@ public class AutodocuForm {
 
 		 Text excludeFiltersText = toolkit.createText(sectionFiltersClient, "",SWT.MULTI|SWT.WRAP|SWT.V_SCROLL);
 		 excludeFiltersText.setLayoutData(gd3);
-		 
-		 broker.post(StressToolsEventConstants.FILE_NEW_AUTODOCU_PART, parte.getLabel());
-	 
 	}
 	
 	@Inject
@@ -278,7 +308,13 @@ public class AutodocuForm {
 		
 	}
 	
-	
+	@PersistState
+	public void persistState(MPart part) {
+		  parte.setElementId(partPath.toString());
+	      Map<String, String> state = part.getPersistedState();
+	      //state.put(partPath.toString(), "AUTODOCU");
+	      //System.out.println("@PersistState\tClase:\t"+ this.getClass().getSimpleName());
+	}
 	
 	
 	@Focus
@@ -289,7 +325,7 @@ public class AutodocuForm {
 	public void dispose() {
 		System.out.println("Entro en dispose of AutodocuForm...\t"+parte.getLabel());
 		broker.post(StressToolsEventConstants.FILE_CLOSE_AUTODOCU_PART, parte.getLabel());
-		 toolkit.dispose();
+		 if(toolkit!=null) toolkit.dispose();
 		 
 	}
 	
