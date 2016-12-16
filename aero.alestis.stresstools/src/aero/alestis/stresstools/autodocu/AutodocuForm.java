@@ -5,6 +5,7 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 import java.io.File;
+import java.net.URISyntaxException;
 import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.LinkOption;
@@ -24,6 +25,7 @@ import org.eclipse.e4.ui.di.PersistState;
 import org.eclipse.e4.ui.model.application.ui.MDirtyable;
 import org.eclipse.e4.ui.model.application.ui.basic.MPart;
 import org.eclipse.e4.ui.services.IServiceConstants;
+import org.eclipse.e4.ui.workbench.IPresentationEngine;
 import org.eclipse.e4.ui.workbench.modeling.EPartService;
 import org.eclipse.jface.action.Action;
 import org.eclipse.jface.action.IToolBarManager;
@@ -45,11 +47,13 @@ import org.osgi.framework.Bundle;
 import org.osgi.framework.FrameworkUtil;
 
 import aero.alestis.stresstools.events.StressToolsEventConstants;
+import aero.alestis.stresstools.models.AutodocuModel;
 
 public class AutodocuForm {
 	private FormToolkit toolkit;
 	private ScrolledForm form;
 	private java.nio.file.Path partPath;
+	private static AutodocuModel modelo;
 	@Inject MDirtyable dirty;
 	@Inject MPart parte;
 	@Inject IEventBroker broker;
@@ -62,24 +66,39 @@ public class AutodocuForm {
 
     }
 		
-		
-		
-	
 	
 	@PostConstruct
 	public void postConstruct(Composite parent) {
-		System.out.println("Numero de transient data en el parte:\t" +parte.getTransientData().size());
+		boolean autodispose = false;
+		System.out.println("\nAutodocuForm:\tpostConstruct\t" +parte.getLabel());
 		//parte.getTags().add(EPartService.REMOVE_ON_HIDE_TAG);
 		//parte.setElementId("EEEELEMENTOTTTTTTTT");
-		System.out.println("LAS TAGS:\t"+parte.getTags().toString());
-		System.out.println("EL container DAta:\t"+parte.getContainerData());
+		//System.out.println("LAS TAGS:\t"+parte.getTags().toString());
+		//System.out.println("EL container DAta:\t"+parte.getContainerData());
 		if(parte.getTransientData().get("File Path") == null){
-			String tempDir = System.getProperty("java.io.tmpdir");
-			System.out.println("DIRECTIORIO TEMPORAL:\t"+tempDir);
+
 			partPath = Paths.get(parte.getElementId());
+			parte.getTransientData().put("File Path", parte.getElementId());
 			if(Files.exists(partPath, LinkOption.NOFOLLOW_LINKS)){
 				System.out.println("EL ARCHIVO EXISTE$$$$$$$$$$$$$$$$$$$$$$$$");
+				//System.out.println("El icon URI:\t"+parte.getIconURI());
+				//System.out.println("trasient data\t"+ parte.getTransientData().toString());
 
+			}
+			else{
+				autodispose= true;
+				String tempDir = System.getProperty("java.io.tmpdir");
+				System.out.println("DIRECTIORIO TEMPORAL:\t"+tempDir);
+				//Bundle bundle = FrameworkUtil.getBundle(this.getClass());
+				//URL url22 = FileLocator.find(bundle, new Path("icons/lrun_obj.png"), null);
+				//ImageDescriptor imageDescriptorll2 = ImageDescriptor.createFromURL(url22);
+				//System.out.println("trasient data\t"+ parte.getTransientData().toString());
+				//partService.findPart(parte.getElementId()).setIconURI("platform:/plugin/aero.alestis.stresstools/icons/lrun_obj.png");;
+				//partService.hidePart(partService.findPart(parte.getElementId()), true);
+				//System.out.println("El icon URI:\t"+parte.getIconURI());
+				//parte.getTransientData().remove(IPresentationEngine.OVERRIDE_ICON_IMAGE_KEY);
+				//parte.setIconURI("platform:/plugin/aero.alestis.stresstools/icons/lrun_obj.png");
+				
 			}
 	
 		}
@@ -88,16 +107,22 @@ public class AutodocuForm {
 			String cadena = (String)parte.getTransientData().get("File Path");
 			System.out.println("LA PUTA CADENA\t"+ cadena);
 			partPath = Paths.get(cadena);
-			Files.exists(partPath, LinkOption.NOFOLLOW_LINKS);
 			parte.setLabel(partPath.getFileName().toString());
 			parte.setElementId(partPath.toString());
 			
 
 		}
 		
-		 createSWTControls(parent);
 		 
-		 broker.post(StressToolsEventConstants.FILE_NEW_AUTODOCU_PART, parte.getLabel());
+		 if(autodispose){
+				partService.hidePart(partService.findPart(parte.getElementId()), true);
+
+		 }
+		 else{
+			 createSWTControls(parent);
+			 broker.post(StressToolsEventConstants.FILE_NEW_AUTODOCU_PART, parte.getLabel());
+ 
+		 }
 	 
 	}
 
@@ -323,7 +348,7 @@ public class AutodocuForm {
 	}
 	@PreDestroy
 	public void dispose() {
-		System.out.println("Entro en dispose of AutodocuForm...\t"+parte.getLabel());
+		System.out.println("\nAutodocuForm:\tdispose...\t" +parte.getLabel()+"\n");
 		broker.post(StressToolsEventConstants.FILE_CLOSE_AUTODOCU_PART, parte.getLabel());
 		 if(toolkit!=null) toolkit.dispose();
 		 

@@ -9,9 +9,9 @@ public class AutodocuModelTest {
 	private boolean cfrpStructureTables;
 	private String pathWithResults;
 	private String pathToStoreResults;
-	private String StructurePNRelationFile;
-	private String PanelPNRelationFile;
-	private String ExcludedElementsFile;
+	private String structurePNRelationFile;
+	private String panelPNRelationFile;
+	private String excludedElementsFile;
 	private String excelWithCorrectedTables;
 	private String sectionDataFileForPanel;
 	private String filtersToIncludeInText;
@@ -66,28 +66,28 @@ public class AutodocuModelTest {
 		this.pathToStoreResults = pathToStoreResults;
 	}
 	public String getStructurePNRelationFile() {
-		return StructurePNRelationFile;
+		return structurePNRelationFile;
 	}
 	
 	@XmlElement
 	public void setStructurePNRelationFile(String structurePNRelationFile) {
-		StructurePNRelationFile = structurePNRelationFile;
+		structurePNRelationFile = structurePNRelationFile;
 	}
 	public String getPanelPNRelationFile() {
-		return PanelPNRelationFile;
+		return panelPNRelationFile;
 	}
 	
 	@XmlElement
 	public void setPanelPNRelationFile(String panelPNRelationFile) {
-		PanelPNRelationFile = panelPNRelationFile;
+		this.panelPNRelationFile = panelPNRelationFile;
 	}
 	public String getExcludedElementsFile() {
-		return ExcludedElementsFile;
+		return excludedElementsFile;
 	}
 	
 	@XmlElement
 	public void setExcludedElementsFile(String excludedElementsFile) {
-		ExcludedElementsFile = excludedElementsFile;
+		excludedElementsFile = excludedElementsFile;
 	}
 	public String getExcelWithCorrectedTables() {
 		return excelWithCorrectedTables;
