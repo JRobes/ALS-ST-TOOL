@@ -5,11 +5,15 @@
       <children xsi:type="advanced:Perspective" xmi:id="_LwDywJRzEeaHPvaUkqHx1g" elementId="aero.alestis.stresstools.perspective.0">
         <children xsi:type="basic:PartSashContainer" xmi:id="_h5WvsJR0EeaHPvaUkqHx1g" elementId="aero.alestis.stresstools.partsashcontainer.0" horizontal="true">
           <children xsi:type="basic:PartStack" xmi:id="_Y6UBwJUcEeatx-vC6dETNg" elementId="aero.alestis.stresstools.partstack.1" containerData="1000">
+            <tags>NoAutoCollapse</tags>
             <children xsi:type="basic:Part" xmi:id="_jwROAJR0EeaHPvaUkqHx1g" elementId="aero.alestis.stresstools.part.browser" containerData="" contributionURI="bundleclass://aero.alestis.stresstools/aero.alestis.stresstools.projectexplorer.ProjectExplorer" label="Browser" iconURI="platform:/plugin/aero.alestis.stresstools/icons/documents-symbol.png"/>
           </children>
           <children xsi:type="basic:PartSashContainer" xmi:id="_66NlEJR0EeaHPvaUkqHx1g" elementId="aero.alestis.stresstools.partsashcontainer.1" containerData="4000">
-            <children xsi:type="basic:PartStack" xmi:id="_97SJYJR0EeaHPvaUkqHx1g" elementId="aero.alestis.stresstools.partstack.0" containerData="3000">
-              <tags>NoAutoCollapse</tags>
+            <children xsi:type="basic:PartSashContainer" xmi:id="_gj9jYMajEeaJYcFhHzGjLQ" elementId="aero.alestis.stresstools.partsashcontainer.2" containerData="3000" horizontal="true">
+              <children xsi:type="basic:PartStack" xmi:id="_97SJYJR0EeaHPvaUkqHx1g" elementId="aero.alestis.stresstools.partstack.0" containerData="3000">
+                <tags>NoAutoCollapse</tags>
+              </children>
+              <children xsi:type="basic:PartStack" xmi:id="_uYxXEMajEeaJYcFhHzGjLQ" elementId="aero.alestis.stresstools.partstack.utilities" visible="false" containerData="3000"/>
             </children>
             <children xsi:type="basic:PartStack" xmi:id="_cgVtQJUcEeatx-vC6dETNg" elementId="aero.alestis.stresstools.partstack.2" containerData="1000">
               <children xsi:type="basic:Part" xmi:id="_AIlucJR1EeaHPvaUkqHx1g" elementId="aero.alestis.stresstools.part.console" containerData="" contributionURI="bundleclass://aero.alestis.stresstools/aero.alestis.stresstools.console.ConsoleView" label="Console" iconURI="platform:/plugin/aero.alestis.stresstools/icons/console_view.gif">
@@ -39,6 +43,7 @@
     <trimBars xmi:id="_Z78O8JnfEeaJOfCG5e0Pjw" elementId="aero.alestis.stresstools.trimbar.top">
       <children xsi:type="menu:ToolBar" xmi:id="_bpCp8JnfEeaJOfCG5e0Pjw" elementId="aero.alestis.stresstools.toolbar.1">
         <children xsi:type="menu:HandledToolItem" xmi:id="_dcjO8JnfEeaJOfCG5e0Pjw" elementId="aero.alestis.stresstools.handledtoolitem.0" iconURI="platform:/plugin/aero.alestis.stresstools/icons/new_con.gif" command="_eW5GYJnWEeaJOfCG5e0Pjw"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_agk_cMa1EeaJYcFhHzGjLQ" elementId="aero.alestis.stresstools.handledtoolitem.1" iconURI="platform:/plugin/aero.alestis.stresstools/icons/gameboard.gif" command="_uL3lsMayEeaJYcFhHzGjLQ"/>
       </children>
     </trimBars>
     <trimBars xmi:id="_mSjvkJtOEeayoaCX6Ub29g" elementId="aero.alestis.stresstools.trimbar.bottom" side="Bottom">
@@ -48,12 +53,15 @@
   <handlers xmi:id="_7iN7oJnXEeaJOfCG5e0Pjw" elementId="aero.alestis.stresstools.handler.newautodocuhandler" contributionURI="bundleclass://aero.alestis.stresstools/aero.alestis.stresstools.autodocu.handlers.NewAutodocuHandler" command="_eW5GYJnWEeaJOfCG5e0Pjw"/>
   <handlers xmi:id="_WUS3AJnYEeaJOfCG5e0Pjw" elementId="aero.alestis.stresstools.handler.abouthandler" contributionURI="bundleclass://aero.alestis.stresstools/aero.alestis.stresstools.handlers.AboutHandler" command="_zwcd4JnWEeaJOfCG5e0Pjw"/>
   <handlers xmi:id="_M7Z1IJrBEeaq-t_uOUw7jA" elementId="aero.alestis.stresstools.handler.openautodocuhandler" contributionURI="bundleclass://aero.alestis.stresstools/aero.alestis.stresstools.autodocu.handlers.OpenAutodocuHandler" command="_GyvNwJrBEeaq-t_uOUw7jA"/>
+  <handlers xmi:id="_6B5_kMayEeaJYcFhHzGjLQ" elementId="aero.alestis.stresstools.handler.utilities.fromnastransetstolist" contributionURI="bundleclass://aero.alestis.stresstools/aero.alestis.stresstools.utilities.handlers.FromNastranSetsToListHandler" command="_uL3lsMayEeaJYcFhHzGjLQ"/>
   <descriptors xmi:id="_9W2mYJn1EeaPDujWeEOrZA" elementId="aero.alestis.stresstools.partdescriptor.autodocu" iconURI="platform:/plugin/aero.alestis.stresstools/icons/file_obj.gif" allowMultiple="true" closeable="true" contributionURI="bundleclass://aero.alestis.stresstools/aero.alestis.stresstools.autodocu.AutodocuForm">
     <tags>removeOnHide</tags>
   </descriptors>
+  <descriptors xmi:id="_DH6P4Ma1EeaJYcFhHzGjLQ" elementId="aero.alestis.stresstools.partdescriptor.nastransettolist" label="NastranSetToList" contributionURI="bundleclass://aero.alestis.stresstools/aero.alestis.stresstools.utilities.FromNastranSetsToList"/>
   <commands xmi:id="_eW5GYJnWEeaJOfCG5e0Pjw" elementId="aero.alestis.stresstools.command.newautodocu" commandName="newautodocu"/>
   <commands xmi:id="_zwcd4JnWEeaJOfCG5e0Pjw" elementId="aero.alestis.stresstools.command.about" commandName="about"/>
   <commands xmi:id="_GyvNwJrBEeaq-t_uOUw7jA" elementId="aero.alestis.stresstools.command.openautodocu" commandName="openautodocu"/>
+  <commands xmi:id="_uL3lsMayEeaJYcFhHzGjLQ" elementId="aero.alestis.stresstools.command.utilities.fromnastransetstolist" commandName="nastransetstolist"/>
   <addons xmi:id="_ZLP0QZH8Eea8KeGJQvTbFQ" elementId="org.eclipse.e4.core.commands.service" contributionURI="bundleclass://org.eclipse.e4.core.commands/org.eclipse.e4.core.commands.CommandServiceAddon"/>
   <addons xmi:id="_ZLP0QpH8Eea8KeGJQvTbFQ" elementId="org.eclipse.e4.ui.contexts.service" contributionURI="bundleclass://org.eclipse.e4.ui.services/org.eclipse.e4.ui.services.ContextServiceAddon"/>
   <addons xmi:id="_ZLP0Q5H8Eea8KeGJQvTbFQ" elementId="org.eclipse.e4.ui.bindings.service" contributionURI="bundleclass://org.eclipse.e4.ui.bindings/org.eclipse.e4.ui.bindings.BindingServiceAddon"/>

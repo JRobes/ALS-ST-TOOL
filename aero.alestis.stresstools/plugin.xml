@@ -12,6 +12,10 @@
                name="appName"
                value="stress-tools">
          </property>
+         <property
+               name="lifeCycleURI"
+               value="bundleclass://aero.alestis.stresstools/aero.alestis.stresstools.lifecycle.LifeCycleManager">
+         </property>
       </product>
    </extension>
 

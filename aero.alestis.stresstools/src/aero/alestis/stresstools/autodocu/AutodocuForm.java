@@ -80,9 +80,7 @@ public class AutodocuForm {
 			partPath = Paths.get(parte.getElementId());
 			parte.getTransientData().put("File Path", parte.getElementId());
 			if(Files.exists(partPath, LinkOption.NOFOLLOW_LINKS)){
-				System.out.println("EL ARCHIVO EXISTE$$$$$$$$$$$$$$$$$$$$$$$$");
-				//System.out.println("El icon URI:\t"+parte.getIconURI());
-				//System.out.println("trasient data\t"+ parte.getTransientData().toString());
+			
 
 			}
 			else{
@@ -115,7 +113,7 @@ public class AutodocuForm {
 		
 		 
 		 if(autodispose){
-				partService.hidePart(partService.findPart(parte.getElementId()), true);
+				//partService.hidePart(partService.findPart(parte.getElementId()), true);
 
 		 }
 		 else{
@@ -344,7 +342,7 @@ public class AutodocuForm {
 	
 	@Focus
 	public void setFocus() {
-		form.setFocus();
+		//form.setFocus();
 	}
 	@PreDestroy
 	public void dispose() {
