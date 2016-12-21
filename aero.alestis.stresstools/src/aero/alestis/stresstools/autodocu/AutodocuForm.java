@@ -220,8 +220,8 @@ public class AutodocuForm {
 		 sectionFilters.setText("Filters");
 
 		 
-		 Composite sectionPathsClient = toolkit.createComposite(sectionPaths);
-		 Composite sectionFiltersClient = toolkit.createComposite(sectionFilters);
+		 Composite sectionPathsClientComposite = toolkit.createComposite(sectionPaths);
+		 Composite sectionFiltersClientComposite = toolkit.createComposite(sectionFilters);
 
 		 //FillLayout fillLayout2 = new FillLayout(SWT.VERTICAL);
 		 GridLayout gridLayoutSectionPaths = new GridLayout(2, false);
@@ -230,94 +230,94 @@ public class AutodocuForm {
 		 GridData gd = new GridData();
 		 gd.horizontalSpan = 2;
 		 
-		 sectionPathsClient.setLayout(gridLayoutSectionPaths);
-		 sectionPaths.setClient(sectionPathsClient);
+		 sectionPathsClientComposite.setLayout(gridLayoutSectionPaths);
+		 sectionPaths.setClient(sectionPathsClientComposite);
 		 
 		 
-		 Label label = toolkit.createLabel(sectionPathsClient, "Path with results:");
+		 Label label = toolkit.createLabel(sectionPathsClientComposite, "Path with results:");
 		 label.setLayoutData(gd);
 		 gd = new GridData(GridData.FILL_HORIZONTAL);
-		 Text pathWithResultsText = toolkit.createText(sectionPathsClient, "");
+		 Text pathWithResultsText = toolkit.createText(sectionPathsClientComposite, "");
 		 pathWithResultsText.setLayoutData(gd);
-		 Button pathWithResultsButton = toolkit.createButton(sectionPathsClient, "Browse", SWT.PUSH);
+		 Button pathWithResultsButton = toolkit.createButton(sectionPathsClientComposite, "Browse", SWT.PUSH);
 		
-		 Label label2 = toolkit.createLabel(sectionPathsClient, "Path to store results:");
+		 Label label2 = toolkit.createLabel(sectionPathsClientComposite, "Path to store results:");
 		 gd = new GridData();
 		 gd.horizontalSpan = 2; 
 		 label2.setLayoutData(gd);
 		 gd = new GridData(GridData.FILL_HORIZONTAL);
-		 Text pathToStoreResultsText = toolkit.createText(sectionPathsClient, "");
+		 Text pathToStoreResultsText = toolkit.createText(sectionPathsClientComposite, "");
 		 pathToStoreResultsText.setLayoutData(gd);
-		 Button pathToStoreResultsButton = toolkit.createButton(sectionPathsClient, "Browse", SWT.PUSH);	 
+		 Button pathToStoreResultsButton = toolkit.createButton(sectionPathsClientComposite, "Browse", SWT.PUSH);	 
 		 
-		 Label label3 = toolkit.createLabel(sectionPathsClient, "Structure P/N relation file:");
+		 Label label3 = toolkit.createLabel(sectionPathsClientComposite, "Structure P/N relation file:");
 		 gd = new GridData();
 		 gd.horizontalSpan = 2; 
 		 label3.setLayoutData(gd);
 		 gd = new GridData(GridData.FILL_HORIZONTAL);
-		 Text pathStructurePNText = toolkit.createText(sectionPathsClient, "");
+		 Text pathStructurePNText = toolkit.createText(sectionPathsClientComposite, "");
 		 pathStructurePNText.setLayoutData(gd);
-		 Button pathStructurePNButton = toolkit.createButton(sectionPathsClient, "Browse", SWT.PUSH);	 
+		 Button pathStructurePNButton = toolkit.createButton(sectionPathsClientComposite, "Browse", SWT.PUSH);	 
 	
-		 Label label4 = toolkit.createLabel(sectionPathsClient, "Panel P/N relation file:");
+		 Label label4 = toolkit.createLabel(sectionPathsClientComposite, "Panel P/N relation file:");
 		 gd = new GridData();
 		 gd.horizontalSpan = 2; 
 		 label4.setLayoutData(gd);
 		 gd = new GridData(GridData.FILL_HORIZONTAL);
-		 Text pathPanelPNText = toolkit.createText(sectionPathsClient, "");
+		 Text pathPanelPNText = toolkit.createText(sectionPathsClientComposite, "");
 		 pathPanelPNText.setLayoutData(gd);
-		 Button pathPanelPNButton = toolkit.createButton(sectionPathsClient, "Browse", SWT.PUSH);	 
+		 Button pathPanelPNButton = toolkit.createButton(sectionPathsClientComposite, "Browse", SWT.PUSH);	 
 		 	 
-		 Label label5 = toolkit.createLabel(sectionPathsClient, "Excluded elements file:");
+		 Label label5 = toolkit.createLabel(sectionPathsClientComposite, "Excluded elements file:");
 		 gd = new GridData();
 		 gd.horizontalSpan = 2; 
 		 label5.setLayoutData(gd);
 		 gd = new GridData(GridData.FILL_HORIZONTAL);
-		 Text excludedElementsFileText = toolkit.createText(sectionPathsClient, "");
+		 Text excludedElementsFileText = toolkit.createText(sectionPathsClientComposite, "");
 		 excludedElementsFileText.setLayoutData(gd);
-		 Button excludedElementsFileButton = toolkit.createButton(sectionPathsClient, "Browse", SWT.PUSH);	 
+		 Button excludedElementsFileButton = toolkit.createButton(sectionPathsClientComposite, "Browse", SWT.PUSH);	 
 		 	  
-		 Label label6 = toolkit.createLabel(sectionPathsClient, "Excel with corrected tables:");
+		 Label label6 = toolkit.createLabel(sectionPathsClientComposite, "Excel with corrected tables:");
 		 gd = new GridData();
 		 gd.horizontalSpan = 2; 
 		 label6.setLayoutData(gd);
 		 gd = new GridData(GridData.FILL_HORIZONTAL);
-		 Text excelWithCorrectedTeblesText = toolkit.createText(sectionPathsClient, "");
+		 Text excelWithCorrectedTeblesText = toolkit.createText(sectionPathsClientComposite, "");
 		 excelWithCorrectedTeblesText.setLayoutData(gd);
-		 Button excelWithCorrectedTeblesButton = toolkit.createButton(sectionPathsClient, "Browse", SWT.PUSH);	 
+		 Button excelWithCorrectedTeblesButton = toolkit.createButton(sectionPathsClientComposite, "Browse", SWT.PUSH);	 
 		 	 
-		 Label label7 = toolkit.createLabel(sectionPathsClient, "Section data file for panel:");
+		 Label label7 = toolkit.createLabel(sectionPathsClientComposite, "Section data file for panel:");
 		 gd = new GridData();
 		 gd.horizontalSpan = 2; 
 		 label7.setLayoutData(gd);
 		 gd = new GridData(GridData.FILL_HORIZONTAL);
-		 Text sectionDataFilePanelText = toolkit.createText(sectionPathsClient, "");
+		 Text sectionDataFilePanelText = toolkit.createText(sectionPathsClientComposite, "");
 		 sectionDataFilePanelText.setLayoutData(gd);
-		 Button sectionDataFilePanelButton = toolkit.createButton(sectionPathsClient, "Browse", SWT.PUSH);	 
+		 Button sectionDataFilePanelButton = toolkit.createButton(sectionPathsClientComposite, "Browse", SWT.PUSH);	 
 
 		 GridLayout glFiltersPaths = new GridLayout();
 		 glFiltersPaths.marginTop = 3;
-		 sectionFiltersClient.setLayout(glFiltersPaths);
-		 sectionFilters.setClient(sectionFiltersClient);
+		 sectionFiltersClientComposite.setLayout(glFiltersPaths);
+		 sectionFilters.setClient(sectionFiltersClientComposite);
 		 
 		 
-		 Label label8 = toolkit.createLabel(sectionFiltersClient, "Filters to INCLUDE in text:");
+		 Label label8 = toolkit.createLabel(sectionFiltersClientComposite, "Filters to INCLUDE in text:");
 	 
 		 GridData gd2 = new GridData(GridData.FILL_HORIZONTAL);
 		 gd2.heightHint=130;
 		 //gd2.verticalSpan
 		 //gd2.verticalSpan = 4; 	 
-		 Text includeFiltersText = toolkit.createText(sectionFiltersClient, "",SWT.MULTI|SWT.WRAP|SWT.V_SCROLL);
+		 Text includeFiltersText = toolkit.createText(sectionFiltersClientComposite, "",SWT.MULTI|SWT.WRAP|SWT.V_SCROLL);
 		 
 		 includeFiltersText.setLayoutData(gd2);
-		 Label label9 = toolkit.createLabel(sectionFiltersClient, "");
-		 Label label10 = toolkit.createLabel(sectionFiltersClient, "Filters to EXCLUDE in text:");
+		 Label label9 = toolkit.createLabel(sectionFiltersClientComposite, "");
+		 Label label10 = toolkit.createLabel(sectionFiltersClientComposite, "Filters to EXCLUDE in text:");
 
 		 
 		 GridData gd3 = new GridData(GridData.FILL_HORIZONTAL);
 		 gd3.heightHint = 130;
 
-		 Text excludeFiltersText = toolkit.createText(sectionFiltersClient, "",SWT.MULTI|SWT.WRAP|SWT.V_SCROLL);
+		 Text excludeFiltersText = toolkit.createText(sectionFiltersClientComposite, "",SWT.MULTI|SWT.WRAP|SWT.V_SCROLL);
 		 excludeFiltersText.setLayoutData(gd3);
 	}
 	

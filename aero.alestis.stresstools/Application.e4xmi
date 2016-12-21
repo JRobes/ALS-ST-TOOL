@@ -57,7 +57,9 @@
   <descriptors xmi:id="_9W2mYJn1EeaPDujWeEOrZA" elementId="aero.alestis.stresstools.partdescriptor.autodocu" iconURI="platform:/plugin/aero.alestis.stresstools/icons/file_obj.gif" allowMultiple="true" closeable="true" contributionURI="bundleclass://aero.alestis.stresstools/aero.alestis.stresstools.autodocu.AutodocuForm">
     <tags>removeOnHide</tags>
   </descriptors>
-  <descriptors xmi:id="_DH6P4Ma1EeaJYcFhHzGjLQ" elementId="aero.alestis.stresstools.partdescriptor.nastransettolist" label="NastranSetToList" contributionURI="bundleclass://aero.alestis.stresstools/aero.alestis.stresstools.utilities.FromNastranSetsToList"/>
+  <descriptors xmi:id="_DH6P4Ma1EeaJYcFhHzGjLQ" elementId="aero.alestis.stresstools.partdescriptor.nastransettolist" label="NastranSetToList" closeable="true" contributionURI="bundleclass://aero.alestis.stresstools/aero.alestis.stresstools.utilities.FromNastranSetsToList">
+    <tags>removeOnHide</tags>
+  </descriptors>
   <commands xmi:id="_eW5GYJnWEeaJOfCG5e0Pjw" elementId="aero.alestis.stresstools.command.newautodocu" commandName="newautodocu"/>
   <commands xmi:id="_zwcd4JnWEeaJOfCG5e0Pjw" elementId="aero.alestis.stresstools.command.about" commandName="about"/>
   <commands xmi:id="_GyvNwJrBEeaq-t_uOUw7jA" elementId="aero.alestis.stresstools.command.openautodocu" commandName="openautodocu"/>

@@ -4,6 +4,7 @@ import java.nio.file.Files;
 import java.nio.file.LinkOption;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.Iterator;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -16,6 +17,7 @@ import org.eclipse.e4.ui.model.application.ui.MUIElement;
 import org.eclipse.e4.ui.model.application.ui.basic.MPart;
 import org.eclipse.e4.ui.model.application.ui.basic.MPartSashContainer;
 import org.eclipse.e4.ui.model.application.ui.basic.MPartStack;
+import org.eclipse.e4.ui.model.application.ui.basic.MWindow;
 import org.eclipse.e4.ui.workbench.lifecycle.PostContextCreate;
 import org.eclipse.e4.ui.workbench.lifecycle.ProcessAdditions;
 import org.eclipse.e4.ui.workbench.lifecycle.ProcessRemovals;
@@ -28,14 +30,15 @@ public class LifeCycleManager {
 	//@Inject MContext context;
 	//@Inject MApplication app;
 
-	/*
+	
 	
 	@ProcessRemovals
 	void postContextCreate(IEclipseContext context, MApplication application, EModelService modelService, EPartService partService){
 		
 		
 		
-		System.out.println("Esto debería ser lo primero");
+		System.out.println("Esto debería ser lo primero\nEl context es");
+		
 		//System.out.println(org.osgi.framework.FrameworkUtil.getBundle(AutodocuForm.class));
 
 		List<MPart> parts = modelService.findElements(application, null, MPart.class, null);
@@ -56,8 +59,28 @@ public class LifeCycleManager {
 					//MElementContainer<MPartStack> parent = elParte.getParent();
 					System.out.println("EL PARENT:\t"+parent.getElementId());
 					//partService.hidePart(elParte, true);
+					Iterator it = parent.getChildren().iterator();
 					elParte.setToBeRendered(false);
-					parent.getChildren().remove(elParte);
+					while(it.hasNext()){
+						MUIElement el = (MUIElement) it.next();
+						if(el.getElementId().equals(elParte.getElementId())){
+							
+							System.out.println("Encontreeeeee 0000000000000000000000");
+							parent.getChildren().remove(el);
+							parent.setSelectedElement(null);
+							break;
+						}
+					}
+					//List<MUIElement> listpartes = parent.getChildren();
+					//listpartes.rem
+					
+					
+					
+					//parent.setToBeRendered(true);
+					
+					//modelService.per;
+					//parent.
+					//parent.getChildren().remove(elParte);
 				}
 			}
 			//System.out.println(partes.getElementId());
@@ -67,6 +90,6 @@ public class LifeCycleManager {
 		
 		//modelService.
 	}
-	*/
+	
 	
 }
