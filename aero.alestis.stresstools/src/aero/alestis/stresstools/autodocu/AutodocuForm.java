@@ -190,20 +190,20 @@ public class AutodocuForm {
 		 sectionAnalysisType.setLayoutData(td2);
 		 sectionAnalysisType.setText("Analysis type");
 		 sectionAnalysisType.setDescription("Select the analysis to perform\n");
-		 Composite sectionClient = toolkit.createComposite(sectionAnalysisType);
+		 Composite compositeSectionClient = toolkit.createComposite(sectionAnalysisType);
 
 		 FillLayout fillLayout = new FillLayout();
 		 fillLayout.marginHeight=15;
 		 fillLayout.type = SWT.HORIZONTAL;
-		 sectionClient.setLayout(fillLayout);
+		 compositeSectionClient.setLayout(fillLayout);
 		 
-		 Button pitchingTablesRadioButton = toolkit.createButton(sectionClient, "Pitching tables", SWT.RADIO);
+		 Button pitchingTablesRadioButton = toolkit.createButton(compositeSectionClient, "Pitching tables", SWT.RADIO);
 		 pitchingTablesRadioButton.setSelection(true);
-		 Button panelTablesRadioButton = toolkit.createButton(sectionClient, "Panel tables", SWT.RADIO);
-		 Button metalStructTablesRadioButton = toolkit.createButton(sectionClient, "Metal structure tables", SWT.RADIO);
-		 Button cfrpStructTablesRadioButton = toolkit.createButton(sectionClient, "CFRP structure tables", SWT.RADIO);
+		 Button panelTablesRadioButton = toolkit.createButton(compositeSectionClient, "Panel tables", SWT.RADIO);
+		 Button metalStructTablesRadioButton = toolkit.createButton(compositeSectionClient, "Metal structure tables", SWT.RADIO);
+		 Button cfrpStructTablesRadioButton = toolkit.createButton(compositeSectionClient, "CFRP structure tables", SWT.RADIO);
 
-		 sectionAnalysisType.setClient(sectionClient);
+		 sectionAnalysisType.setClient(compositeSectionClient);
 		 
 		 Section sectionPaths = toolkit.createSection(form.getBody(), Section.DESCRIPTION|Section.TITLE_BAR| Section.TWISTIE|Section.EXPANDED);
 		 Section sectionFilters = toolkit.createSection(form.getBody(), Section.DESCRIPTION|Section.TITLE_BAR| Section.TWISTIE|Section.EXPANDED);
