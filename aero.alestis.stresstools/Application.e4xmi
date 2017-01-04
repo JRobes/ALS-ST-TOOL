@@ -44,6 +44,7 @@
       <children xsi:type="menu:ToolBar" xmi:id="_bpCp8JnfEeaJOfCG5e0Pjw" elementId="aero.alestis.stresstools.toolbar.1">
         <children xsi:type="menu:HandledToolItem" xmi:id="_dcjO8JnfEeaJOfCG5e0Pjw" elementId="aero.alestis.stresstools.handledtoolitem.0" iconURI="platform:/plugin/aero.alestis.stresstools/icons/new_con.gif" command="_eW5GYJnWEeaJOfCG5e0Pjw"/>
         <children xsi:type="menu:HandledToolItem" xmi:id="_agk_cMa1EeaJYcFhHzGjLQ" elementId="aero.alestis.stresstools.handledtoolitem.1" iconURI="platform:/plugin/aero.alestis.stresstools/icons/gameboard.gif" command="_uL3lsMayEeaJYcFhHzGjLQ"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_LytMUNJnEead28H_4XmZZA" elementId="aero.alestis.stresstools.handledtoolitem.corin" label="" iconURI="platform:/plugin/aero.alestis.stresstools/icons/About.png" command="_X2W2UNJlEead28H_4XmZZA"/>
       </children>
     </trimBars>
     <trimBars xmi:id="_mSjvkJtOEeayoaCX6Ub29g" elementId="aero.alestis.stresstools.trimbar.bottom" side="Bottom">
@@ -54,16 +55,19 @@
   <handlers xmi:id="_WUS3AJnYEeaJOfCG5e0Pjw" elementId="aero.alestis.stresstools.handler.abouthandler" contributionURI="bundleclass://aero.alestis.stresstools/aero.alestis.stresstools.handlers.AboutHandler" command="_zwcd4JnWEeaJOfCG5e0Pjw"/>
   <handlers xmi:id="_M7Z1IJrBEeaq-t_uOUw7jA" elementId="aero.alestis.stresstools.handler.openautodocuhandler" contributionURI="bundleclass://aero.alestis.stresstools/aero.alestis.stresstools.autodocu.handlers.OpenAutodocuHandler" command="_GyvNwJrBEeaq-t_uOUw7jA"/>
   <handlers xmi:id="_6B5_kMayEeaJYcFhHzGjLQ" elementId="aero.alestis.stresstools.handler.utilities.fromnastransetstolist" contributionURI="bundleclass://aero.alestis.stresstools/aero.alestis.stresstools.utilities.handlers.FromNastranSetsToListHandler" command="_uL3lsMayEeaJYcFhHzGjLQ"/>
+  <handlers xmi:id="_cW6QYNJlEead28H_4XmZZA" elementId="aero.alestis.stresstools.handler.0" contributionURI="bundleclass://aero.alestis.stresstools/aero.alestis.stresstools.utilities.handlers.FromCorinCsvToElsHandler" command="_X2W2UNJlEead28H_4XmZZA"/>
   <descriptors xmi:id="_9W2mYJn1EeaPDujWeEOrZA" elementId="aero.alestis.stresstools.partdescriptor.autodocu" iconURI="platform:/plugin/aero.alestis.stresstools/icons/file_obj.gif" allowMultiple="true" closeable="true" contributionURI="bundleclass://aero.alestis.stresstools/aero.alestis.stresstools.autodocu.AutodocuForm">
     <tags>removeOnHide</tags>
   </descriptors>
   <descriptors xmi:id="_DH6P4Ma1EeaJYcFhHzGjLQ" elementId="aero.alestis.stresstools.partdescriptor.nastransettolist" label="NastranSetToList" closeable="true" contributionURI="bundleclass://aero.alestis.stresstools/aero.alestis.stresstools.utilities.FromNastranSetsToList">
     <tags>removeOnHide</tags>
   </descriptors>
+  <descriptors xmi:id="_8fQs4NJlEead28H_4XmZZA" elementId="aero.alestis.stresstools.partdescriptor.corincsvtoels" label="CorinCsvToEls" closeable="true" contributionURI="bundleclass://aero.alestis.stresstools/aero.alestis.stresstools.utilities.corin.FromCorinCsvToEls"/>
   <commands xmi:id="_eW5GYJnWEeaJOfCG5e0Pjw" elementId="aero.alestis.stresstools.command.newautodocu" commandName="newautodocu"/>
   <commands xmi:id="_zwcd4JnWEeaJOfCG5e0Pjw" elementId="aero.alestis.stresstools.command.about" commandName="about"/>
   <commands xmi:id="_GyvNwJrBEeaq-t_uOUw7jA" elementId="aero.alestis.stresstools.command.openautodocu" commandName="openautodocu"/>
   <commands xmi:id="_uL3lsMayEeaJYcFhHzGjLQ" elementId="aero.alestis.stresstools.command.utilities.fromnastransetstolist" commandName="nastransetstolist"/>
+  <commands xmi:id="_X2W2UNJlEead28H_4XmZZA" elementId="aero.alestis.stresstools.command.corincsvtoels" commandName="corincsvtoels"/>
   <addons xmi:id="_ZLP0QZH8Eea8KeGJQvTbFQ" elementId="org.eclipse.e4.core.commands.service" contributionURI="bundleclass://org.eclipse.e4.core.commands/org.eclipse.e4.core.commands.CommandServiceAddon"/>
   <addons xmi:id="_ZLP0QpH8Eea8KeGJQvTbFQ" elementId="org.eclipse.e4.ui.contexts.service" contributionURI="bundleclass://org.eclipse.e4.ui.services/org.eclipse.e4.ui.services.ContextServiceAddon"/>
   <addons xmi:id="_ZLP0Q5H8Eea8KeGJQvTbFQ" elementId="org.eclipse.e4.ui.bindings.service" contributionURI="bundleclass://org.eclipse.e4.ui.bindings/org.eclipse.e4.ui.bindings.BindingServiceAddon"/>
