@@ -17,8 +17,11 @@ import org.eclipse.jface.action.Action;
 import org.eclipse.jface.action.IToolBarManager;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.events.MouseEvent;
+import org.eclipse.swt.events.MouseListener;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
+import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
@@ -135,16 +138,46 @@ public class FromCorinCsvToEls {
 		 
 		 Composite compositeSectionInputText = toolkit.createComposite(sectionInputText);
 		 sectionInputText.setClient(compositeSectionInputText);
-		
-		 GridLayout gl2 = new GridLayout();
-		 gl2.marginTop=3;
-		 gl2.numColumns = 2;
-		 compositeSectionInputText.setLayout(gl2);
+		 
+		 GridLayout gridLayoutSectionInputText = new GridLayout(2, false);
+		 //fillLayout2.marginHeight=5;
+		 //fillLayout2.spacing = 30;
+		 GridData gd = new GridData();
+		 gd.horizontalSpan = 2;
+		 compositeSectionInputText.setLayout(gridLayoutSectionInputText);
+		 
+		 
+		 		 
 		 Label label8 = toolkit.createLabel(compositeSectionInputText, "Set the CSV input file:");
-	 
+		
+		 label8.setLayoutData(gd);
+		 gd = new GridData(GridData.FILL_HORIZONTAL);
+		
+		 Text csvFileText = toolkit.createText(compositeSectionInputText, "");
+		 csvFileText.setLayoutData(gd);
+		 Button csvFileButton = toolkit.createButton(compositeSectionInputText, "Browse", SWT.PUSH);
+		 csvFileButton.addMouseListener(new MouseListener(){
+
+			@Override
+			public void mouseDoubleClick(MouseEvent e) {}
+
+			@Override
+			public void mouseDown(MouseEvent e) {
+				System.out.println("boton apretadooooOOOOOOO");
+				
+			}
+
+			@Override
+			public void mouseUp(MouseEvent e) {}
+			 
+		 });
+	
+		 
+		 
+		 
 		 GridData gd2 = new GridData(GridData.FILL_HORIZONTAL);
 		 gd2.heightHint=130;
-		 //gd2.numColumns = 2;
+		 gd2.horizontalSpan = 2;
 
 		 inputText = toolkit.createText(compositeSectionInputText, "",SWT.MULTI|SWT.WRAP|SWT.V_SCROLL);
 		 inputText.setLayoutData(gd2);
