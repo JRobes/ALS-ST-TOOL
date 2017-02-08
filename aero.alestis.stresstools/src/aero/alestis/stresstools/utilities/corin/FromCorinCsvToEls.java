@@ -4,15 +4,24 @@ package aero.alestis.stresstools.utilities.corin;
 import javax.inject.Inject;
 
 import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.StringReader;
 import java.net.URL;
+import java.util.Arrays;
+import java.util.Iterator;
+import java.util.Map;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 
 import org.eclipse.core.runtime.FileLocator;
 import org.eclipse.core.runtime.Path;
+import org.eclipse.e4.ui.model.application.ui.MElementContainer;
+import org.eclipse.e4.ui.model.application.ui.MUIElement;
+import org.eclipse.e4.ui.model.application.ui.basic.MPart;
+import org.eclipse.e4.ui.model.application.ui.basic.MPartStack;
 import org.eclipse.jface.action.Action;
 import org.eclipse.jface.action.IToolBarManager;
 import org.eclipse.jface.resource.ImageDescriptor;
@@ -23,6 +32,7 @@ import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.FileDialog;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.ui.forms.widgets.FormToolkit;
@@ -33,20 +43,29 @@ import org.eclipse.ui.forms.widgets.TableWrapLayout;
 import org.osgi.framework.Bundle;
 import org.osgi.framework.FrameworkUtil;
 
+import aero.alestis.stresstools.utilities.corin.model.CorinLC;
+import aero.alestis.stresstools.utilities.corin.model.CorinRF;
+
 public class FromCorinCsvToEls {
 	private FormToolkit toolkit;
 	private ScrolledForm form;
 	private static Text outputText;
 	private static Text inputText;
+	private Text csvFileText;
+	static private String[] lineaPartida = new String[20];
+	private CorinLC envelopeCorinLC;
 
+	@Inject
+	MPart parte;
 	@Inject
 	public FromCorinCsvToEls() {
 		
 	}
 	
 	@PostConstruct
-	public void postConstruct(Composite parent) {
+	public void postConstruct(final Composite parent) {
 		//parte.getTags().add(EPartService.REMOVE_ON_HIDE_TAG);
+		 envelopeCorinLC = new CorinLC();
 		 toolkit = new FormToolkit(parent.getDisplay());
 		 form = toolkit.createScrolledForm(parent);
 		 
@@ -73,7 +92,9 @@ public class FromCorinCsvToEls {
 			        BufferedReader linea = new BufferedReader(cadena);
 			       // BufferedWriter bffWriter = new BufferedWriter(new PrintWriter(ARCHIVO_DE_SALIDA));
 			        String lineIn,aux;
+			        
 					try {
+						linea.readLine();//first line, header
 						while ((lineIn = linea.readLine()) != null) {
 							aux = lineIn.trim();
 
@@ -81,8 +102,26 @@ public class FromCorinCsvToEls {
 								
 							}
 							else {
-								outputText.append(aux);
-								outputText.append("\n");
+								lineaPartida =aux.split(",");
+								//System.out.println("Jander linea patida:    " + lineaPartida[1]);
+								String[] temp2 = Arrays.copyOf(lineaPartida, lineaPartida.length + 1);
+								temp2[lineaPartida.length] = String.valueOf(lineaPartida.length);
+								System.out.println(Arrays.toString(temp2));
+								System.out.println("Longitud:\t"+ temp2.length);
+								
+								if (temp2.length < 2){
+									//outputText.append("Es vacio");
+								}
+								else{
+									CorinRF corinRF = new CorinRF(temp2[2],Double.parseDouble(temp2[4]), Double.parseDouble(temp2[5]),Double.parseDouble(temp2[6]));
+									envelopeCorinLC.addCorinRF(corinRF);
+									
+									
+								}
+								
+								
+								//outputText.append(aux);
+								//outputText.append("\n");
 								//bffWriter.write(line);
 								//bffWriter.newLine();
 							}
@@ -99,6 +138,16 @@ public class FromCorinCsvToEls {
 					} catch (IOException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
+					}
+					CorinRF corinRF2;
+					for (Map.Entry<String,CorinRF> entry : (envelopeCorinLC.getMapOfCorinRF()).entrySet()) {
+						outputText.append(entry.getKey()+",4\n");
+						corinRF2= entry.getValue();
+						outputText.append(corinRF2.getMin_RF()+","+corinRF2.getY_S_RF()+","+corinRF2.getK_S_RF()+"\n");
+						
+						//System.out.println(entry.getKey());
+					    //Thing thing = entry.getValue();
+					    //...
 					}
 					
 					//bffWriter.flush();
@@ -153,7 +202,7 @@ public class FromCorinCsvToEls {
 		 label8.setLayoutData(gd);
 		 gd = new GridData(GridData.FILL_HORIZONTAL);
 		
-		 Text csvFileText = toolkit.createText(compositeSectionInputText, "");
+		 csvFileText = toolkit.createText(compositeSectionInputText, "");
 		 csvFileText.setLayoutData(gd);
 		 Button csvFileButton = toolkit.createButton(compositeSectionInputText, "Browse", SWT.PUSH);
 		 csvFileButton.addMouseListener(new MouseListener(){
@@ -163,7 +212,51 @@ public class FromCorinCsvToEls {
 
 			@Override
 			public void mouseDown(MouseEvent e) {
-				System.out.println("boton apretadooooOOOOOOO");
+				System.out.println("MouseDown of Browse button, FromCorinCSVToEls.java");
+				FileDialog dialog = new FileDialog(parent.getShell(), SWT.OPEN);
+				dialog.setFilterExtensions(new String [] {"*.csv"});
+				dialog.setText("Open csv with CORIN data:");
+		
+				csvFileText.setText(dialog.open());
+				System.out.println("jander...");
+				BufferedReader linea = null;
+				try {
+					linea = new BufferedReader(new FileReader(csvFileText.getText()));
+				} catch (FileNotFoundException e2) {
+					// TODO Auto-generated catch block
+					e2.printStackTrace();
+				}
+				//BufferedWriter bffWriter = new BufferedWriter(new PrintWriter(ARCHIVO_DE_SALIDA));
+				String line, line2, aux, aux2;
+				try {
+					while ((line = linea.readLine()) != null) {
+						//aux = line.trim();
+						//System.out.println(aux.length());
+						//System.out.println(line);
+						aux = line.trim();
+
+						if(aux.equals("") || aux.charAt(0)=='$'){
+						//Este if sirve para detectar lineas con sólo retorno de carro	
+
+							
+						}
+						else {
+							inputText.append(line);
+							inputText.append("\n");
+							//bffWriter.write(line);
+							//bffWriter.newLine();
+						}
+						
+					}
+					linea.close();
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				
+				//bffWriter.flush();
+				//bffWriter.close();
+				System.out.println("clander...");
 				
 			}
 
@@ -208,10 +301,12 @@ public class FromCorinCsvToEls {
 	
 	@PreDestroy
 	public void dispose() {
+		 MElementContainer<MUIElement> stack = parte.getParent();
+		 stack.getChildren().remove(parte);
 		//System.out.println("\nAutodocuForm:\tdispose...\t" +parte.getLabel()+"\n");
 		//broker.post(StressToolsEventConstants.FILE_CLOSE_AUTODOCU_PART, parte.getLabel());
 		 if(toolkit!=null) toolkit.dispose();
-		 
+
 	}
 	
 	

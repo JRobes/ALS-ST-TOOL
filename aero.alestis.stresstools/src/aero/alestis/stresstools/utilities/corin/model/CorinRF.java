@@ -5,8 +5,11 @@ public class CorinRF {
 	private double Y_S_RF;
 	private double K_S_RF;
 	private double min_RF;
-	public CorinRF(){
-		
+	public CorinRF(String temp2, double d, double e, double f){
+		this.setElement_ID(temp2);
+		this.setMin_RF(d);
+		this.setY_S_RF(e);
+		this.setK_S_RF(f);
 	}
 	public String getElement_ID() {
 		return Element_ID;

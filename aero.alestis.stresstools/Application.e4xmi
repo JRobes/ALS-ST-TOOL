@@ -4,18 +4,18 @@
     <children xsi:type="advanced:PerspectiveStack" xmi:id="_Idw7kJRzEeaHPvaUkqHx1g" elementId="aero.alestis.stresstools.perspectivestack.0">
       <children xsi:type="advanced:Perspective" xmi:id="_LwDywJRzEeaHPvaUkqHx1g" elementId="aero.alestis.stresstools.perspective.0">
         <children xsi:type="basic:PartSashContainer" xmi:id="_h5WvsJR0EeaHPvaUkqHx1g" elementId="aero.alestis.stresstools.partsashcontainer.0" horizontal="true">
-          <children xsi:type="basic:PartStack" xmi:id="_Y6UBwJUcEeatx-vC6dETNg" elementId="aero.alestis.stresstools.partstack.1" containerData="1000">
+          <children xsi:type="basic:PartStack" xmi:id="_Y6UBwJUcEeatx-vC6dETNg" elementId="aero.alestis.stresstools.partstack.browserstack" containerData="1000">
             <tags>NoAutoCollapse</tags>
             <children xsi:type="basic:Part" xmi:id="_jwROAJR0EeaHPvaUkqHx1g" elementId="aero.alestis.stresstools.part.browser" containerData="" contributionURI="bundleclass://aero.alestis.stresstools/aero.alestis.stresstools.projectexplorer.ProjectExplorer" label="Browser" iconURI="platform:/plugin/aero.alestis.stresstools/icons/documents-symbol.png"/>
           </children>
           <children xsi:type="basic:PartSashContainer" xmi:id="_66NlEJR0EeaHPvaUkqHx1g" elementId="aero.alestis.stresstools.partsashcontainer.1" containerData="4000">
             <children xsi:type="basic:PartSashContainer" xmi:id="_gj9jYMajEeaJYcFhHzGjLQ" elementId="aero.alestis.stresstools.partsashcontainer.2" containerData="3000" horizontal="true">
-              <children xsi:type="basic:PartStack" xmi:id="_97SJYJR0EeaHPvaUkqHx1g" elementId="aero.alestis.stresstools.partstack.0" containerData="3000">
+              <children xsi:type="basic:PartStack" xmi:id="_97SJYJR0EeaHPvaUkqHx1g" elementId="aero.alestis.stresstools.partstack.mainstack" containerData="3000">
                 <tags>NoAutoCollapse</tags>
               </children>
               <children xsi:type="basic:PartStack" xmi:id="_uYxXEMajEeaJYcFhHzGjLQ" elementId="aero.alestis.stresstools.partstack.utilities" visible="false" containerData="3000"/>
             </children>
-            <children xsi:type="basic:PartStack" xmi:id="_cgVtQJUcEeatx-vC6dETNg" elementId="aero.alestis.stresstools.partstack.2" containerData="1000">
+            <children xsi:type="basic:PartStack" xmi:id="_cgVtQJUcEeatx-vC6dETNg" elementId="aero.alestis.stresstools.partstack.consolestack" containerData="1000">
               <children xsi:type="basic:Part" xmi:id="_AIlucJR1EeaHPvaUkqHx1g" elementId="aero.alestis.stresstools.part.console" containerData="" contributionURI="bundleclass://aero.alestis.stresstools/aero.alestis.stresstools.console.ConsoleView" label="Console" iconURI="platform:/plugin/aero.alestis.stresstools/icons/console_view.gif">
                 <toolbar xmi:id="_pab0IJR3EeaHPvaUkqHx1g" elementId="aero.alestis.stresstools.toolbar.0"/>
               </children>
