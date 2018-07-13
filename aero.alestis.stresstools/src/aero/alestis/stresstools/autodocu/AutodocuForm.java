@@ -49,7 +49,7 @@ import org.osgi.framework.FrameworkUtil;
 import aero.alestis.stresstools.events.StressToolsEventConstants;
 import aero.alestis.stresstools.models.AutodocuModel;
 
-public class AutodocuForm {
+public class AutodocuForm { 
 	private FormToolkit toolkit;
 	private ScrolledForm form;
 	private java.nio.file.Path partPath;
